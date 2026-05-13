@@ -1,0 +1,11 @@
+/* HUANG GEMS — App-level minor overrides */
+.App {
+    min-height: 100vh;
+    background: var(--hg-bg-0);
+    position: relative;
+}
+
+/* anchor offset for sticky nav */
+section[id] {
+    scroll-margin-top: 88px;
+}
