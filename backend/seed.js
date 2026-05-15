@@ -203,8 +203,8 @@ async function seedData() {
     if (await Admin.countDocuments({}) === 0) {
         await Admin.create({
             id: crypto.randomUUID(),
-            email: 'admin@huanggems.com',
-            hashed_password: bcrypt.hashSync('Admin@2025', 10),
+            email: 'jenny@gmail.com',
+            hashed_password: bcrypt.hashSync('Jenny', 10),
             name: 'Master Curator',
             created_at: new Date(),
         });
