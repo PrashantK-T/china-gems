@@ -26,9 +26,6 @@ next-env.d.ts
 *.tsbuildinfo
 
 # Production builds
-/build
-dist/
-dist
 
 # Environment files (comprehensive coverage)
 
