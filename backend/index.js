@@ -495,3 +495,9 @@ app.use('/api', api);
 // ================= EXPORT =================
 
 module.exports = app;
+
+const PORT = process.env.NODE_PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

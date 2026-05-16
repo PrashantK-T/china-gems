@@ -128,13 +128,13 @@ export const Hero = () => {
                 ))}
             </div>
 
-            <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8 lg:px-12 py-24 md:py-32 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="relative z-10  max-w-7xl px-4 md:px-8 lg:px-12 py-24 md:py-32 ">
                 {/* Left: copy */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-center lg:text-left"
+                    className="text-center lg:text-center"
                 >
                     <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full hg-bg-glass">
                         <span className="w-1.5 h-1.5 rounded-full bg-[var(--hg-gold)] hg-pulse-gold" />
@@ -142,14 +142,14 @@ export const Hero = () => {
                             {t('hero.badge', 'Est. 1998 · Ultra-Rare Gemstones')}
                         </span>
                     </div>
-                    <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.95] tracking-tight">
-                        <span className="block text-white">{t('hero.title1', 'Where Rarity')}</span>
-                        <span className="block hg-gold-text">{t('hero.title2', 'Meets Eternity')}</span>
+                    <h1 className="font-display text-center text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.95] tracking">
+                        <span className=" text-white">{t('hero.title1', 'Where Rarity Meets Eternity')} </span>
+                        <span className=" hg-gold-text">{t('hero.title2', 'Meets Eternity')}</span>
                     </h1>
-                    <p className="mt-6 md:mt-8 font-editorial text-xl md:text-2xl text-white/75 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    <p className="mt-6 md:mt-8 inline font-editorial text-xl md:text-2xl text-white/75 leading-relaxed max-w-xl mx-auto lg:mx-0">
                         {t('hero.intro')}
                     </p>
-                    <div className="mt-9 md:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                    <div className="mt-9 md:mt-10 flex flex-wrap items-center justify-center lg:justify-center gap-4">
                         <a
                             href="#gemstones"
                             data-testid="hero-primary-cta-button"
@@ -166,13 +166,13 @@ export const Hero = () => {
                         </a>
                     </div>
                     {/* Trust strip */}
-                    <div className="mt-10 md:mt-14 grid grid-cols-3 gap-4 md:gap-8 max-w-md mx-auto lg:mx-0">
+                    <div className="mt-10 md:mt-14 grid grid-cols-3 gap-4 md:gap-8 max-w-md mx-auto items-center">
                         {[
                             { num: '25+', lbl: t('hero.stats.years', 'Years') },
                             { num: '5K+', lbl: t('hero.stats.stones', 'Stones Curated') },
                             { num: '40+', lbl: t('hero.stats.countries', 'Countries Served') },
                         ].map((stat) => (
-                            <div key={stat.lbl} className="text-center lg:text-left">
+                            <div key={stat.lbl} className="text-center lg:text-center">
                                 <div className="font-display text-2xl md:text-3xl hg-gold-text font-semibold">{stat.num}</div>
                                 <div className="text-[10px] md:text-xs tracking-[0.22em] uppercase text-white/55 mt-1">{stat.lbl}</div>
                             </div>
@@ -180,21 +180,18 @@ export const Hero = () => {
                     </div>
                 </motion.div>
 
-                {/* Right: cinematic gemstone */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.4, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                     className="relative aspect-square w-full max-w-[640px] mx-auto"
                     data-testid="hero-gemstone-visual"
                 >
-                    {/* Outer halo */}
                     <motion.div
                         className="absolute inset-0 rounded-full"
                         animate={{ boxShadow: `0 0 120px 8px ${phase.glow}, inset 0 0 80px ${phase.glow.replace('0.55', '0.12')}` }}
                         transition={{ duration: 2.2 }}
                     />
-                    {/* Spinning ring */}
                     <motion.div
                         className="absolute inset-6 rounded-full border border-[rgba(212,175,55,0.18)]"
                         animate={reduced ? undefined : { rotate: 360 }}
@@ -211,19 +208,16 @@ export const Hero = () => {
                             />
                         ))}
                     </motion.div>
-                    {/* Counter-rotating ring */}
                     <motion.div
                         className="absolute inset-16 rounded-full border border-white/8"
                         animate={reduced ? undefined : { rotate: -360 }}
                         transition={reduced ? undefined : { duration: 52, ease: 'linear', repeat: Infinity }}
                     />
-                    {/* Floating gold shards */}
                     <GoldFloatingShard x={12} y={20} size={18} delay={0} />
                     <GoldFloatingShard x={82} y={28} size={14} delay={0.8} />
                     <GoldFloatingShard x={88} y={72} size={20} delay={1.6} />
                     <GoldFloatingShard x={8} y={68} size={16} delay={2.4} />
                     <GoldFloatingShard x={48} y={5} size={12} delay={1.2} />
-                    {/* Center gemstone */}
                     <motion.div
                         className="absolute inset-[18%] hg-float"
                         animate={reduced ? undefined : { y: [0, -10, 0] }}
@@ -231,7 +225,6 @@ export const Hero = () => {
                     >
                         <CutGem phase={phase} reduced={reduced} />
                     </motion.div>
-                    {/* Bottom label */}
                     <motion.div
                         key={phase.name}
                         initial={{ opacity: 0, y: 8 }}
@@ -255,7 +248,7 @@ export const Hero = () => {
                             ))}
                         </div>
                     </motion.div>
-                </motion.div>
+                </motion.div> */}
             </div>
 
             {/* Scroll cue */}
