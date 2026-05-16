@@ -3,6 +3,7 @@
     min-height: 100vh;
     background: var(--hg-bg-0);
     position: relative;
+    overflow-x: hidden;
 }
 
 /* anchor offset for sticky nav */
