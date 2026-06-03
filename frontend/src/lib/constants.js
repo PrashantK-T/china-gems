@@ -7,8 +7,8 @@ export const BRAND = {
 };
 
 export const CONTACT = {
-    whatsapp: '+8613800008888',
-    whatsappDisplay: '+86 138 0000 8888',
+    whatsapp: '+8615920423369',
+    whatsappDisplay: '+8615920423369',
     wechatId: 'HuangGemsVIP',
     instagram: 'huanggems',
     instagramUrl: 'https://instagram.com/huanggems',

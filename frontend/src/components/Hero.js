@@ -8,7 +8,6 @@ const GEM_PHASES = [
     { name: 'Ruby', color: '#DC2626', glow: 'rgba(220, 38, 38, 0.55)', accent: '#FF5252', label: 'Pigeon Blood Ruby' },
     { name: 'Sapphire', color: '#2563EB', glow: 'rgba(37, 99, 235, 0.55)', accent: '#4F8BFF', label: 'Royal Blue Sapphire' },
     { name: 'Emerald', color: '#10B981', glow: 'rgba(16, 185, 129, 0.55)', accent: '#34D399', label: 'Muzo Emerald' },
-    { name: 'Diamond', color: '#F3F4F6', glow: 'rgba(255, 255, 255, 0.45)', accent: '#FFFFFF', label: 'D-Flawless Diamond' },
 ];
 
 // SVG gemstone (cushion-cut octahedron, faceted)

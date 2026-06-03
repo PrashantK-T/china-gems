@@ -38,7 +38,7 @@ const FEATURED = [
     },
     {
         id: 'fa4',
-        title: 'Imperial Sapphire & Diamond Serpent',
+        title: 'Imperial Sapphire ',
         meta: '84.5ct · White Gold + Platinum',
         tag: 'Atelier Piece',
         image: USER_UPLOADS.sapphire_necklace,
@@ -46,7 +46,7 @@ const FEATURED = [
     },
     {
         id: 'fa5',
-        title: 'Royal Bridal Suite — Diamond Cascade',
+        title: 'Royal Bridal Suite —  Cascade',
         meta: '12.8ct · 18K Gold · Heritage',
         tag: 'Bridal Collection',
         image: USER_UPLOADS.bridal_set,
@@ -94,13 +94,13 @@ export const FeaturedShowcase = ({ onView }) => {
                 </motion.div>
 
                 {/* Bento grid */}
-                <div className="grid grid-cols-12 gap-4 md:gap-6">
+                <div className="grid grid-cols-12 gap-4 md:gap-4">
                     {/* Hero card */}
                     <FeaturedCard item={FEATURED[0]} className="col-span-12 lg:col-span-7 lg:row-span-2" tall onView={onView} />
                     <FeaturedCard item={FEATURED[1]} className="col-span-6 lg:col-span-5" onView={onView} />
                     <FeaturedCard item={FEATURED[2]} className="col-span-6 lg:col-span-5" onView={onView} />
-                    <FeaturedCard item={FEATURED[3]} className="col-span-12 sm:col-span-6" onView={onView} />
-                    <FeaturedCard item={FEATURED[4]} className="col-span-12 sm:col-span-6" onView={onView} />
+                    {/* <FeaturedCard item={FEATURED[3]} className="col-span-12 sm:col-span-6" onView={onView} /> */}
+                    {/* <FeaturedCard item={FEATURED[4]} className="col-span-12 sm:col-span-6" onView={onView} /> */}
                 </div>
             </div>
         </section>

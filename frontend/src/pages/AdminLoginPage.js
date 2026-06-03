@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 data-testid="admin-login-email"
-                                placeholder="admin@huanggems.com"
+                                placeholder="your email"
                                 className="w-full bg-black/40 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-white placeholder:text-white/35 focus:outline-none focus:border-[var(--hg-gold)] transition-colors"
                                 required
                             />
