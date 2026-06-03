@@ -21,7 +21,7 @@ const {
 } = require('./models');
 
 // OPTIONAL
-// const seedData = require('./seed');
+const seedData = require('./seed');
 
 const MONGO_URL = process.env.MONGO_URL;
 const DB_NAME = process.env.DB_NAME || 'test_database';
@@ -44,6 +44,7 @@ app.use(cors({
         if (allowedOrigins.includes(origin)) {
             return callback(null, true);
         }
+
 
         return callback(new Error('Not allowed by CORS'));
     },
@@ -74,6 +75,7 @@ async function connectDB() {
 
     // OPTIONAL — RUN ONLY ONCE
     // await seedData();
+
 }
 
 // DB middleware
@@ -394,7 +396,7 @@ api.get('/contact-info', (_req, res) => {
     res.json({
         brand: 'HUANG GEMS',
         tagline: 'Where Rarity Meets Eternity',
-        whatsapp: '+8613800008888',
+        whatsapp: '+8615920423369',
         email: 'contact@huanggems.com',
         instagram: 'huanggems'
     });
@@ -487,6 +489,362 @@ api.post('/admin/login', async (req, res) => {
 api.get('/admin/me', requireAdmin, (req, res) => {
     res.json(req.admin);
 });
+
+
+
+// ================= ADMIN STATS =================
+
+api.get('/admin/stats', requireAdmin, async (_req, res) => {
+    try {
+        const [
+            gemstones,
+            jewelry,
+            inquiries,
+            offers,
+            testimonials
+        ] = await Promise.all([
+            Gemstone.countDocuments({}),
+            Jewelry.countDocuments({}),
+            Inquiry.countDocuments({}),
+            Offer.countDocuments({}),
+            Testimonial.countDocuments({})
+        ]);
+
+        const newInquiries = await Inquiry.countDocuments({
+            status: 'new'
+        });
+
+        res.json({
+            gemstones,
+            jewelry,
+            inquiries,
+            offers,
+            testimonials,
+            new_inquiries: newInquiries
+        });
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to load admin stats'
+        });
+    }
+});
+
+// ================= ADMIN GEMSTONES =================
+
+// CREATE
+api.post('/admin/gemstones', requireAdmin, async (req, res) => {
+    try {
+        const body = req.body || {};
+
+        if (!body.name) {
+            return res.status(400).json({
+                detail: 'name is required'
+            });
+        }
+
+        const doc = await Gemstone.create({
+            ...body,
+            id: crypto.randomUUID(),
+            created_at: new Date()
+        });
+
+        res.json(serialize(doc));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to create gemstone'
+        });
+    }
+});
+
+// UPDATE
+api.put('/admin/gemstones/:id', requireAdmin, async (req, res) => {
+    try {
+        const doc = await Gemstone.findOneAndUpdate(
+            { id: req.params.id },
+            { $set: req.body || {} },
+            { new: true }
+        ).lean();
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Gemstone not found'
+            });
+        }
+
+        res.json(serialize(doc));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to update gemstone'
+        });
+    }
+});
+
+// DELETE
+api.delete('/admin/gemstones/:id', requireAdmin, async (req, res) => {
+    try {
+        const doc = await Gemstone.findOneAndDelete({
+            id: req.params.id
+        });
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Gemstone not found'
+            });
+        }
+
+        res.json({
+            success: true
+        });
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to delete gemstone'
+        });
+    }
+});
+
+// ================= ADMIN JEWELRY =================
+
+// CREATE
+api.post('/admin/jewelry', requireAdmin, async (req, res) => {
+    try {
+        const body = req.body || {};
+
+        if (!body.name) {
+            return res.status(400).json({
+                detail: 'name is required'
+            });
+        }
+
+        const doc = await Jewelry.create({
+            ...body,
+            id: crypto.randomUUID(),
+            created_at: new Date()
+        });
+
+        res.json(serialize(doc));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to create jewelry'
+        });
+    }
+});
+
+// UPDATE
+api.put('/admin/jewelry/:id', requireAdmin, async (req, res) => {
+    try {
+        const doc = await Jewelry.findOneAndUpdate(
+            { id: req.params.id },
+            { $set: req.body || {} },
+            { new: true }
+        ).lean();
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Jewelry not found'
+            });
+        }
+
+        res.json(serialize(doc));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to update jewelry'
+        });
+    }
+});
+
+// DELETE
+api.delete('/admin/jewelry/:id', requireAdmin, async (req, res) => {
+    try {
+        const doc = await Jewelry.findOneAndDelete({
+            id: req.params.id
+        });
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Jewelry not found'
+            });
+        }
+
+        res.json({
+            success: true
+        });
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to delete jewelry'
+        });
+    }
+});
+
+// ================= ADMIN INQUIRIES =================
+
+// LIST
+api.get('/admin/inquiries', requireAdmin, async (req, res) => {
+    try {
+        const q = {};
+
+        if (req.query.status) {
+            q.status = req.query.status;
+        }
+
+        const docs = await Inquiry.find(q)
+            .sort({ created_at: -1 })
+            .lean();
+
+        res.json(docs.map(serialize));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to fetch inquiries'
+        });
+    }
+});
+
+// UPDATE STATUS
+api.patch('/admin/inquiries/:id', requireAdmin, async (req, res) => {
+    try {
+        const { status } = req.body || {};
+
+        const doc = await Inquiry.findOneAndUpdate(
+            { id: req.params.id },
+            {
+                $set: {
+                    status: status || 'new'
+                }
+            },
+            { new: true }
+        ).lean();
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Inquiry not found'
+            });
+        }
+
+        res.json(serialize(doc));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to update inquiry'
+        });
+    }
+});
+
+// DELETE
+api.delete('/admin/inquiries/:id', requireAdmin, async (req, res) => {
+    try {
+        const doc = await Inquiry.findOneAndDelete({
+            id: req.params.id
+        });
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Inquiry not found'
+            });
+        }
+
+        res.json({
+            success: true
+        });
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to delete inquiry'
+        });
+    }
+});
+
+// ================= ADMIN OFFERS =================
+
+// CREATE
+api.post('/admin/offers', requireAdmin, async (req, res) => {
+    try {
+        const body = req.body || {};
+
+        const doc = await Offer.create({
+            ...body,
+            id: crypto.randomUUID(),
+            created_at: new Date()
+        });
+
+        res.json(serialize(doc));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to create offer'
+        });
+    }
+});
+
+// UPDATE
+api.put('/admin/offers/:id', requireAdmin, async (req, res) => {
+    try {
+        const doc = await Offer.findOneAndUpdate(
+            { id: req.params.id },
+            { $set: req.body || {} },
+            { new: true }
+        ).lean();
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Offer not found'
+            });
+        }
+
+        res.json(serialize(doc));
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to update offer'
+        });
+    }
+});
+
+// DELETE
+api.delete('/admin/offers/:id', requireAdmin, async (req, res) => {
+    try {
+        const doc = await Offer.findOneAndDelete({
+            id: req.params.id
+        });
+
+        if (!doc) {
+            return res.status(404).json({
+                detail: 'Offer not found'
+            });
+        }
+
+        res.json({
+            success: true
+        });
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            detail: 'Failed to delete offer'
+        });
+    }
+});
+
+
+
 
 // ================= MOUNT =================
 
