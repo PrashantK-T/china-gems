@@ -19,9 +19,6 @@ export const CONTACT = {
 export const NAV_LINKS = [
     { id: 'home', label: 'Home', href: '#home' },
     { id: 'gemstones', label: 'Gemstones', href: '#gemstones' },
-    { id: 'jewelry', label: 'Jewelry', href: '#jewelry' },
-    { id: 'collections', label: 'Collections', href: '#collections' },
-    { id: 'craftsmanship', label: 'Craftsmanship', href: '#craftsmanship' },
     { id: 'certifications', label: 'Certifications', href: '#certifications' },
     { id: 'about', label: 'About', href: '#about' },
     { id: 'contact', label: 'Contact', href: '#contact' },
@@ -57,14 +54,14 @@ export const CRAFT_STEPS = [
 ];
 
 export const GLOBAL_CITIES = [
-    { name: 'Beijing', code: 'CN-BJ', coords: [116.4, 39.9], country: 'China' },
-    { name: 'Hong Kong', code: 'HK', coords: [114.17, 22.32], country: 'Hong Kong SAR' },
+    { name: 'Guangzhou', code: 'CN-GU', coords: [116.4, 39.9], country: 'China' },
+    // { name: 'Hong Kong', code: 'HK', coords: [114.17, 22.32], country: 'Hong Kong SAR' },
     { name: 'Shanghai', code: 'CN-SH', coords: [121.47, 31.23], country: 'China' },
-    { name: 'Dubai', code: 'AE', coords: [55.27, 25.20], country: 'UAE' },
+    // { name: 'Dubai', code: 'AE', coords: [55.27, 25.20], country: 'UAE' },
     { name: 'Bangkok', code: 'TH', coords: [100.5, 13.75], country: 'Thailand' },
     { name: 'Mumbai', code: 'IN', coords: [72.83, 19.08], country: 'India' },
-    { name: 'Geneva', code: 'CH', coords: [6.14, 46.20], country: 'Switzerland' },
-    { name: 'Paris', code: 'FR', coords: [2.35, 48.86], country: 'France' },
-    { name: 'London', code: 'UK', coords: [-0.13, 51.51], country: 'United Kingdom' },
-    { name: 'New York', code: 'US', coords: [-74.0, 40.71], country: 'United States' },
+    // { name: 'Geneva', code: 'CH', coords: [6.14, 46.20], country: 'Switzerland' },
+    // { name: 'Paris', code: 'FR', coords: [2.35, 48.86], country: 'France' },
+    // { name: 'London', code: 'UK', coords: [-0.13, 51.51], country: 'United Kingdom' },
+    // { name: 'New York', code: 'US', coords: [-74.0, 40.71], country: 'United States' },
 ];

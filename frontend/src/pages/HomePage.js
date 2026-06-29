@@ -46,12 +46,12 @@ export default function HomePage() {
                 <Hero />
                 <FeaturedShowcase onView={openProduct} />
                 <GemstonesCatalog onView={openProduct} />
-                <JewelryCollections onView={openProduct} />
-                <ExclusiveOffers onInquireClick={openInquireScroll} />
-                <CraftsmanshipTimeline />
+                {/* <JewelryCollections onView={openProduct} /> */}
+                {/* <ExclusiveOffers onInquireClick={openInquireScroll} /> */}
+                {/* <CraftsmanshipTimeline /> */}
                 <Certifications />
                 <GlobalPresence />
-                <Testimonials />
+                {/* <Testimonials /> */}
                 <About />
                 <Contact />
             </main>

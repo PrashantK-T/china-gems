@@ -24,6 +24,7 @@ export default function AdminDashboardOverview() {
 
     return (
         <div data-testid="admin-dashboard-overview">
+            
             <div className="mb-8">
                 <h1 className="font-display text-2xl md:text-3xl text-white tracking-wide font-semibold">Dashboard</h1>
                 <p className="text-sm text-white/55 mt-1">Welcome back to the HUANG GEMS admin console.</p>
@@ -32,6 +33,8 @@ export default function AdminDashboardOverview() {
                 {CARDS.map((card) => {
                     const Icon = card.icon;
                     const value = stats?.[card.key] ?? 0;
+                    console.log("sts",stats)
+                    console.log("card",card)
                     return (
                         <div
                             key={card.key}

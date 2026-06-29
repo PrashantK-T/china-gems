@@ -58,7 +58,7 @@ export const Footer = () => {
                     <div>
                         <h4 className="text-xs tracking-[0.32em] uppercase text-[var(--hg-gold)] mb-5">{t('footer.certifiedBy')}</h4>
                         <div className="flex flex-wrap gap-2">
-                            {['GIA', 'IGI', 'HRD', 'SSEF', 'Gübelin'].map((c) => (
+                            {['AIGI', 'GRGS', 'GUILD'   ].map((c) => (
                                 <span key={c} className="px-3 py-1.5 rounded-full hg-bg-glass text-xs font-display tracking-wider text-white/75">
                                     {c}
                                 </span>

@@ -3,11 +3,9 @@ import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { useLang } from '../lib/LangContext';
 
 const USER_UPLOADS = {
-    rough_ruby: 'https://customer-assets.emergentagent.com/job_faf4d25f-1013-485c-82bc-56445b7526ad/artifacts/i0mmhhdv_gem-2.jpeg',
-    cut_ruby: 'https://customer-assets.emergentagent.com/job_faf4d25f-1013-485c-82bc-56445b7526ad/artifacts/ogq516g6_gem-4.jpeg',
-    sapphire_ring: 'https://customer-assets.emergentagent.com/job_faf4d25f-1013-485c-82bc-56445b7526ad/artifacts/rzwgbhzu_gem-5.jpeg',
-    sapphire_necklace: 'https://customer-assets.emergentagent.com/job_faf4d25f-1013-485c-82bc-56445b7526ad/artifacts/j1ujg5bv_jwel-1.jpeg',
-    bridal_set: 'https://customer-assets.emergentagent.com/job_faf4d25f-1013-485c-82bc-56445b7526ad/artifacts/4zks23bn_jwel-2.jpeg',
+    rough_ruby: 'https://res.cloudinary.com/dkzrcrj8r/image/upload/v1780643554/bl-4_nangjo.jpg',
+    cut_ruby: 'https://res.cloudinary.com/dkzrcrj8r/image/upload/v1782773319/ruby-gem_xprzjy.jpg',
+    sapphire_ring: 'https://res.cloudinary.com/dkzrcrj8r/image/upload/v1780643555/rd-3_kbgyzz.jpg',
 };
 
 const FEATURED = [
@@ -36,22 +34,7 @@ const FEATURED = [
         image: USER_UPLOADS.sapphire_ring,
         accent: 'sapphire',
     },
-    {
-        id: 'fa4',
-        title: 'Imperial Sapphire ',
-        meta: '84.5ct · White Gold + Platinum',
-        tag: 'Atelier Piece',
-        image: USER_UPLOADS.sapphire_necklace,
-        accent: 'sapphire',
-    },
-    {
-        id: 'fa5',
-        title: 'Royal Bridal Suite —  Cascade',
-        meta: '12.8ct · 18K Gold · Heritage',
-        tag: 'Bridal Collection',
-        image: USER_UPLOADS.bridal_set,
-        accent: 'gold',
-    },
+    
 ];
 
 const accentRing = {
@@ -99,8 +82,7 @@ export const FeaturedShowcase = ({ onView }) => {
                     <FeaturedCard item={FEATURED[0]} className="col-span-12 lg:col-span-7 lg:row-span-2" tall onView={onView} />
                     <FeaturedCard item={FEATURED[1]} className="col-span-6 lg:col-span-5" onView={onView} />
                     <FeaturedCard item={FEATURED[2]} className="col-span-6 lg:col-span-5" onView={onView} />
-                    {/* <FeaturedCard item={FEATURED[3]} className="col-span-12 sm:col-span-6" onView={onView} /> */}
-                    {/* <FeaturedCard item={FEATURED[4]} className="col-span-12 sm:col-span-6" onView={onView} /> */}
+                     {/* <FeaturedCard item={FEATURED[3]} className="col-span-12 sm:col-span-6" onView={onView} />  */}
                 </div>
             </div>
         </section>

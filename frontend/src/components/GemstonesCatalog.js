@@ -8,7 +8,7 @@ import GemstoneCard from './GemstoneCard';
 
 const TYPES = ['precious', 'semi-precious', 'organic'];
 const RARITIES = ['Common', 'Rare', 'Very Rare', 'Extremely Rare'];
-const CERTIFICATIONS = ['AIGI', 'GUILD', 'GRSG'];
+const CERTIFICATIONS = ['AIGS', 'GUILD', 'GRS'];
 const PRICE_TIERS = ['Premium', 'Luxury', 'Ultra-Luxury'];
 
 const initialFilters = {

@@ -118,15 +118,15 @@ export const TRANSLATIONS = {
         // About
         about: {
             eyebrow: 'Our Heritage',
-            title1: 'A Legacy of ',
-            title2: 'Connoisseurship',
-            p1: "Founded in Beijing in 1998, HUANG GEMS has evolved from a private gemstone trader serving Hong Kong's most prestigious families into a globally recognized house for investment-grade gemstones and bespoke ornamental jewelry.",
+            title1: 'Our story of',
+            title2: 'Indian gems',
+            p1: "Founded in Guangzhou in 1998, HUANG GEMS has evolved from a private gemstone trader serving Hong Kong's most prestigious families into a globally recognized house for investment-grade gemstones and bespoke ornamental jewelry.",
             p2: "Our master curators travel the world's legendary mining regions — from the Mogok Valley to the Muzo mines, from Lightning Ridge to Kashmir — sourcing only the rarest stones for our patrons.",
             badge1: '25+ Years of Discreet Excellence',
-            badge2: 'Beijing · Hong Kong · Dubai',
+            badge2: 'Guangzhou · Hong Kong · Dubai',
             pillars: [
                 { title: 'Provenance', text: 'Every stone traced to its origin mine with full documentation.' },
-                { title: 'Certification', text: "GIA, IGI, HRD, SSEF, Gübelin — the world's finest gem labs." },
+                { title: 'Certification', text: "AIGI, GUILD, GRGS — the world's finest gem labs." },
                 { title: 'Global Reach', text: 'Private appointments arranged across 40+ countries.' },
                 { title: 'Discretion', text: 'Absolute confidentiality for our most discerning clientele.' },
             ],

@@ -121,8 +121,11 @@ function JewelryFormDialog({ open, onClose, editing, onSaved }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
+        
+        
         try {
             const payload = { ...form, images: form.images.filter((u) => u.trim()) };
+            console.log(payload);
             payload.total_carat = parseFloat(payload.total_carat) || 0;
             if (editing) await adminUpdateJewelry(editing.id, payload);
             else await adminCreateJewelry(payload);
