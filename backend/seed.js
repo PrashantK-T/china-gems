@@ -162,9 +162,9 @@ const TESTIMONIALS = [
 ];
 
 const CERTIFICATIONS = [
-    { id: crypto.randomUUID(), name: 'AIGI', full_name: 'Gemology education & certification in India', description: "The foremost authority on jewelry trade and colored stones.", logo_text: 'AIGI' },
+    { id: crypto.randomUUID(), name: 'AIGS', full_name: 'Asian Institute of Gemological Sciences', description: "The foremost authority on jewelry trade and colored stones.", logo_text: 'AIGS' },
     { id: crypto.randomUUID(), name: 'GUILD', full_name: 'GUILD Gemological Institute', description: 'Advanced gemstone identification, colored stones, field gemology.', logo_text: 'GUILD' },
-    { id: crypto.randomUUID(), name: 'GRSG', full_name: 'Advanced professional designation from GUILD', description: 'Experienced gemologists seeking specialization.', logo_text: 'GRSG' },
+    { id: crypto.randomUUID(), name: 'GRS', full_name: 'Global Recycled Standard', description: 'Experienced gemologists seeking specialization.', logo_text: 'GRS' },
 ];
 
 const OFFERS = [
