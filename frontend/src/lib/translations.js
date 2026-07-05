@@ -126,7 +126,7 @@ export const TRANSLATIONS = {
             badge2: 'Guangzhou · Hong Kong · Dubai',
             pillars: [
                 { title: 'Provenance', text: 'Every stone traced to its origin mine with full documentation.' },
-                { title: 'Certification', text: "AIGI, GUILD, GRGS — the world's finest gem labs." },
+                { title: 'Certification', text: "AIGS, GUILD, GRS — the world's finest gem labs." },
                 { title: 'Global Reach', text: 'Private appointments arranged across 40+ countries.' },
                 { title: 'Discretion', text: 'Absolute confidentiality for our most discerning clientele.' },
             ],
