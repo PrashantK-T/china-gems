@@ -1,6 +1,7 @@
 // HUANG GEMS — seed data (idempotent). Curated reliable image URLs.
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+
 const {
     Gemstone, Jewelry, Inquiry, Admin, Offer, Testimonial, Certification
 } = require('./models');
