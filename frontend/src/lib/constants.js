@@ -56,10 +56,10 @@ export const CRAFT_STEPS = [
 export const GLOBAL_CITIES = [
     { name: 'Guangzhou', code: 'CN-GU', coords: [116.4, 39.9], country: 'China' },
     // { name: 'Hong Kong', code: 'HK', coords: [114.17, 22.32], country: 'Hong Kong SAR' },
-    { name: 'Shanghai', code: 'CN-SH', coords: [121.47, 31.23], country: 'China' },
+    // { name: 'Shanghai', code: 'CN-SH', coords: [121.47, 31.23], country: 'China' },
     // { name: 'Dubai', code: 'AE', coords: [55.27, 25.20], country: 'UAE' },
     { name: 'Bangkok', code: 'TH', coords: [100.5, 13.75], country: 'Thailand' },
-    { name: 'Mumbai', code: 'IN', coords: [72.83, 19.08], country: 'India' },
+    // { name: 'Mumbai', code: 'IN', coords: [72.83, 19.08], country: 'India' },
     // { name: 'Geneva', code: 'CH', coords: [6.14, 46.20], country: 'Switzerland' },
     // { name: 'Paris', code: 'FR', coords: [2.35, 48.86], country: 'France' },
     // { name: 'London', code: 'UK', coords: [-0.13, 51.51], country: 'United Kingdom' },
